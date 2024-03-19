@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>{{ 'new-position' | translate }}</h2>
+
+<mat-dialog-content>
+    <form [formGroup]="stockForm">
+        <mat-form-field>
+                    <mat-label>{{ 'symbol-name-figi' | translate }}</mat-label>
+            <input type="text"
+                   placeholder=""
+                   aria-label="Symbol"
+                   [formControl]="input"
+                   matInput
+                   [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+                @for (data of positionFilter ; track data) {
+                    <mat-option [value]="data.info">{{ data.info }}</mat-option>
+                }
+            </mat-autocomplete>
+        </mat-form-field>
+
+
+
+    </form>
+
+
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button type="button" mat-button mat-dialog-close>{{ 'cancel' | translate }}</button>
+    <button type="submit" mat-button>{{ 'add' | translate }}</button>
+</mat-dialog-actions>

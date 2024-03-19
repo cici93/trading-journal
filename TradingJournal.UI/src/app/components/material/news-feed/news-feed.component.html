@@ -1,0 +1,18 @@
+<swiper-container
+        autoplay="true"
+        navigation="true"
+        centered-slides="true"
+       >
+    @for (item of news; track item.id) {
+        <swiper-slide >
+            <div class="card">
+                <div class="header">
+                    <span><b>{{item.headline}}</b></span>
+                    <span>{{item.datetime | unixTimespanToDate}}</span></div>
+                <div class="image-container">
+                    <img (click)="openNews(item.url)" [src]="item?.image ? item?.image : 'assets/images/alt_img_cute_robot.jpg'" alt="News description">
+                </div>
+            </div>
+        </swiper-slide>
+    }
+</swiper-container>
