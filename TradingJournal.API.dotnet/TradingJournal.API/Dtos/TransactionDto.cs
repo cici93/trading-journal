@@ -6,11 +6,6 @@ namespace TradingJournal.Dtos;
 public class TransactionDto
 {
     public int TransactionId { get; set; }
-
-    [JsonConverter(typeof(JsonStringEnumConverter))]
-    public AssetType AssetType { get; set; }
-
-    public string Label { get; set; } = string.Empty;
     
     public double TransactionPrice { get; set; }
 

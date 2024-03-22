@@ -18,7 +18,7 @@ namespace TradingJournal.Data;
              .HasConversion(transactionTypeConverter);
          
          var assetTypeConverter = new EnumToStringConverter<AssetType>();
-         modelBuilder.Entity<Transaction>()
+         modelBuilder.Entity<Position>()
              .Property(t => t.AssetType)
              .HasConversion(assetTypeConverter);
          

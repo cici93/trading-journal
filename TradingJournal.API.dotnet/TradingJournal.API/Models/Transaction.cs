@@ -6,9 +6,6 @@ namespace TradingJournal.Models;
 public class Transaction
 {
     public int TransactionId { get; set; }
-
-    [JsonConverter(typeof(JsonStringEnumConverter))]
-    public AssetType AssetType { get; set; }
     
     public double TransactionPrice { get; set; }
 

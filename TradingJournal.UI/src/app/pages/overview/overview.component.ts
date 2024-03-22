@@ -1,11 +1,16 @@
 import { Component, DestroyRef, OnInit } from '@angular/core';
 import { TransactionFormComponent } from "../../components/transaction-form/transaction-form.component";
 import { BackendService } from "../../services/backend/backend.service";
-import { TransactionDto } from "../../interfaces/transaction.interface";
+import { Transaction } from "../../interfaces/transaction.interface";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { resolve } from "@angular/compiler-cli";
 import { PositionTableComponent } from "../../components/position-table/position-table.component";
 import { NotificationService } from "../../services/notification/notification.service";
+import { Position } from "../../interfaces/position.interface";
+import { NzButtonComponent } from "ng-zorro-antd/button";
+import { NzIconDirective } from "ng-zorro-antd/icon";
+import { PositionFormComponent } from "../../components/position-form/position-form.component";
+
 
 
 @Component({
@@ -13,7 +18,10 @@ import { NotificationService } from "../../services/notification/notification.se
     standalone: true,
     imports: [
         TransactionFormComponent,
-        PositionTableComponent
+        PositionTableComponent,
+        NzButtonComponent,
+        NzIconDirective,
+        PositionFormComponent
 
     ],
     templateUrl: './overview.component.html',
@@ -21,25 +29,39 @@ import { NotificationService } from "../../services/notification/notification.se
 })
 export class OverviewComponent implements OnInit {
 
-    transactions: TransactionDto[] = [];
+    positions: Position[] = [];
 
     constructor(
-        private backendService: BackendService,
+        private backend: BackendService,
         private destroyRef: DestroyRef,
-        private notification: NotificationService) {
+        private notification: NotificationService
+    ) {
     }
 
+    log() {
+        console.log('transactions', this.positions)
+    }
 
     ngOnInit() {
-        this.backendService.get<TransactionDto[]>('Transaction').pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
+        this.backend.get<Position[]>('Position').pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
             next: res => {
-                this.transactions = res;
-                console.log(this.transactions)
+                this.positions = res;
+                console.log('allPositions',this.positions)
             },
-
-
-            error: err =>
+            error: () =>
                 this.notification.showError()
         })
+    }
+
+    async deletePosition(positionId: number) {
+        this.backend.delete(`Position/${positionId}`)
+            .pipe(takeUntilDestroyed(this.destroyRef))
+            .subscribe({
+                next: () =>{
+                    this.positions = this.positions.filter(p => p.positionId !== positionId);
+                    this.notification.showSuccess();
+                },
+                error: () => this.notification.showError()
+            })
     }
 }

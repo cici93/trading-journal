@@ -20,4 +20,8 @@ export class BackendService {
        return this.http.post<T>(`${this.backendUrl}${api}`, body);
     }
 
+    delete <T> (api: string): Observable<T> {
+        return this.http.delete<T>(`${this.backendUrl}${api}`);
+    }
+
 }

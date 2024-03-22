@@ -1,7 +1,7 @@
-import { Component, DestroyRef, OnInit } from '@angular/core';
+import { Component, DestroyRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
 import { NzFormDirective, NzFormItemComponent, NzFormLabelComponent } from "ng-zorro-antd/form";
-import { NzColDirective } from "ng-zorro-antd/grid";
+import { NzColDirective, NzRowDirective } from "ng-zorro-antd/grid";
 import { NzAutosizeDirective, NzInputDirective, NzInputGroupComponent } from "ng-zorro-antd/input";
 import { NzOptionComponent, NzSelectComponent } from "ng-zorro-antd/select";
 import { AssetTypesConstant } from "../../constants/assetTypesConstant";
@@ -13,72 +13,93 @@ import { CurrenciesConstant } from "../../constants/currencies.constant";
 import { KeyValuePipe } from "@angular/common";
 import { NzRadioComponent, NzRadioGroupComponent } from "ng-zorro-antd/radio";
 import { NzButtonComponent } from "ng-zorro-antd/button";
-import { BackendService } from "../../services/backend/backend.service";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-import { TransactionDto } from "../../interfaces/transaction.interface";
-import { NzNotificationService } from "ng-zorro-antd/notification";
-import { NotificationService } from "../../services/notification/notification.service";
-
+import { Transaction } from "../../interfaces/transaction.interface";
+import { NzIconDirective } from "ng-zorro-antd/icon";
+import { distinctUntilChanged, scan } from "rxjs";
 
 @Component({
     selector: 'app-transaction-form',
     standalone: true,
-    imports: [FormsModule, ReactiveFormsModule, NzFormDirective, NzFormItemComponent, NzFormLabelComponent, NzColDirective, NzInputDirective, NzSelectComponent, NzOptionComponent, TranslateModule, NzCheckboxComponent, NzInputNumberComponent, NzDatePickerComponent, KeyValuePipe, NzAutosizeDirective, NzRadioGroupComponent, NzRadioComponent, NzInputGroupComponent, NzButtonComponent],
+    imports: [FormsModule, ReactiveFormsModule, NzFormDirective, NzFormItemComponent, NzFormLabelComponent, NzColDirective, NzInputDirective, NzSelectComponent, NzOptionComponent, TranslateModule, NzCheckboxComponent, NzInputNumberComponent, NzDatePickerComponent, KeyValuePipe, NzAutosizeDirective, NzRadioGroupComponent, NzRadioComponent, NzInputGroupComponent, NzButtonComponent, NzRowDirective, NzIconDirective],
     templateUrl: './transaction-form.component.html',
     styleUrl: './transaction-form.component.scss'
 })
-export class TransactionFormComponent implements OnInit {
+export class TransactionFormComponent implements OnChanges, OnInit {
+
+    @Input() transaction?: Transaction;
+    @Output() onSaveOutput: EventEmitter<Transaction> = new EventEmitter<Transaction>();
+
+    doEdit = false;
+    placeholderTransaction?: Transaction;
+
     transactionForm: FormGroup = this.formBuilder.group({
-        transactionType: ["Buy", Validators.required],
-        assetType: [undefined, Validators.required],
-        label: [undefined, Validators.required],
+        transactionId: [],
         transactionPrice: [undefined, Validators.required],
-        quantity: [undefined],
+        transactionType: ["Buy", Validators.required],
         transactionDate: [undefined],
+        quantity: [undefined],
         commission: [undefined],
         tax: [undefined],
+        total: [undefined],
         currency: ['EUR', Validators.required],
-        notes: [undefined]
+        notes: [undefined],
+        positionId: []
     })
 
     protected readonly CurrenciesConstant = CurrenciesConstant;
-    protected readonly AssetTypeConstant = AssetTypesConstant;
-    priceSelectTotal = true;
+
 
     constructor(
         private formBuilder: FormBuilder,
-        private backendService: BackendService,
         private destroyRef: DestroyRef,
-        private notification: NotificationService
     ) {
     }
 
+    ngOnChanges(changes: SimpleChanges): void {
+        if (this.transaction) {
+            this.transactionForm.patchValue(this.transaction);
+            this.transactionForm.disable();
+        }
+    }
+
     ngOnInit() {
-        this.onTransactionTypeSelect();
-    }
-
-    onSubmit() {
-        const transaction: TransactionDto = {...this.transactionForm.value};
-        this.backendService.post('Transaction', transaction).pipe(takeUntilDestroyed(this.destroyRef))
-            .subscribe({
-                next: () =>
-                    this.notification.showSuccess(),
-                error: err =>
-                    this.notification.showError()
-            });
-    }
-
-    onTransactionTypeSelect() {
-        this.transactionTypeForm.valueChanges.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
-            if (!this.isTransactionTypeSell) {
-                this.taxForm.reset();
-            }
+        this.currencyForm.valueChanges.pipe(
+            takeUntilDestroyed(this.destroyRef),
+            distinctUntilChanged()
+        ).subscribe(val => {
+            this.currencyForm.patchValue(val);
         });
     }
 
-    onPriceSelect() {
-        if (!this.priceSelectTotal) {
-            this.quantityForm.reset();
+    onSubmit() {
+        const transaction: Transaction = {...this.transactionForm.value};
+        this.onSaveOutput.emit(transaction);
+        // this.backendService.post('Transaction', transaction).pipe(takeUntilDestroyed(this.destroyRef))
+        //     .subscribe({
+        //         next: () =>
+        //             this.notification.showSuccess(),
+        //         error: err =>
+        //             this.notification.showError()
+        //     });
+    }
+
+    onAction(type: 'edit' | 'delete' | 'cancel') {
+        if (type === 'edit') {
+            this.doEdit = true;
+            this.placeholderTransaction = { ...this.transactionForm.value };
+            this.transactionForm.enable();
+        }
+
+        if (type === 'cancel') {
+            this.doEdit = false;
+            this.transactionForm.patchValue(this.placeholderTransaction!);
+            this.placeholderTransaction = undefined;
+            this.transactionForm.disable();
+        }
+
+        if (type === 'delete') {
+
         }
     }
 
@@ -94,7 +115,11 @@ export class TransactionFormComponent implements OnInit {
         return this.transactionForm.get('tax') as FormControl;
     }
 
-    get isTransactionTypeSell() {
-        return this.transactionTypeForm.value === 'Sell';
+   get currencyForm() {
+        return this.transactionForm.get('currency') as FormControl;
+   }
+
+    test() {
+        console.log(this.transactionForm.value)
     }
 }

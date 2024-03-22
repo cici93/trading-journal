@@ -30,6 +30,10 @@ namespace TradingJournal.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("PositionId"));
 
+                    b.Property<string>("AssetType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -59,10 +63,6 @@ namespace TradingJournal.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("TransactionId"));
-
-                    b.Property<string>("AssetType")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<double>("Commission")
                         .HasColumnType("double precision");

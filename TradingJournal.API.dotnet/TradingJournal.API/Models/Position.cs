@@ -7,6 +7,9 @@ public class Position
 {
     public int PositionId { get; set; }
 
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    public AssetType AssetType { get; set; }
+    
     public string Label { get; set; } = string.Empty;
     
     [JsonConverter(typeof(JsonStringEnumConverter))]

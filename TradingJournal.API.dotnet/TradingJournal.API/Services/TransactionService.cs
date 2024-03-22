@@ -98,7 +98,6 @@ public class TransactionService(DataContext data, Lazy<IPositionService> positio
             if (transaction is null)
                 return Result.Fail($"No transaction with Id {transactionDto.TransactionId} found.");
             
-            transaction.AssetType = transactionDto.AssetType;
             transaction.TransactionPrice = transactionDto.TransactionPrice;
             transaction.TransactionType = transactionDto.TransactionType;
             transaction.TransactionDate = transactionDto.TransactionDate;
@@ -166,7 +165,6 @@ public class TransactionService(DataContext data, Lazy<IPositionService> positio
         return new TransactionDto
         {
             TransactionId = transaction.TransactionId,
-            AssetType = transaction.AssetType,
             TransactionPrice = transaction.TransactionPrice,
             TransactionType = transaction.TransactionType,
             TransactionDate = transaction.TransactionDate,
@@ -185,7 +183,6 @@ public class TransactionService(DataContext data, Lazy<IPositionService> positio
         return new Transaction
         {
             TransactionId = transactionDto.TransactionId,
-            AssetType = transactionDto.AssetType,
             TransactionPrice = transactionDto.TransactionPrice,
             TransactionType = transactionDto.TransactionType,
             TransactionDate = transactionDto.TransactionDate,
@@ -196,7 +193,6 @@ public class TransactionService(DataContext data, Lazy<IPositionService> positio
             Currency = transactionDto.Currency,
             Notes = transactionDto.Notes,
             PositionId = transactionDto.PositionId
-            
         };
     }
 

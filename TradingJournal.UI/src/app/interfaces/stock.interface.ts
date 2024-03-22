@@ -1,11 +1,11 @@
-import {TransactionDto} from "./transaction.interface";
+import {Transaction} from "./transaction.interface";
 
 export interface Stock {
   name?: string;
   symbol?: string;
   figi?: string;
   price?: number;
-  transactions?: TransactionDto[];
+  transactions?: Transaction[];
   sector?: string;
   country?: string;
   indices?: string;

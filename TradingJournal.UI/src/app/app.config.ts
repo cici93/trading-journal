@@ -11,6 +11,8 @@ import { registerLocaleData } from '@angular/common';
 import de from '@angular/common/locales/de';
 import { FormsModule } from '@angular/forms';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { NzNotificationModule } from "ng-zorro-antd/notification";
+import { NzModalModule } from "ng-zorro-antd/modal";
 
 registerLocaleData(de);
 
@@ -27,8 +29,13 @@ export const appConfig: ApplicationConfig = {
             deps: [HttpClient],
             useFactory: HttpLoaderFactory
         }
-    })), provideNzIcons(), provideNzI18n(de_DE), importProvidersFrom(FormsModule), importProvidersFrom(HttpClientModule),
-    provideAnimations()
+    })),
+      provideNzIcons(),
+      provideNzI18n(de_DE),
+      importProvidersFrom(FormsModule),
+      importProvidersFrom(HttpClientModule),
+      provideAnimations(),
+      importProvidersFrom(NzModalModule)
 ]
 };
 

@@ -1,1 +1,72 @@
-<p>position-table works!</p>
+<nz-table #positionTable
+          [nzData]="transactions"
+          nzOuterBordered
+          nzSize="small">
+    <thead>
+        <tr>
+            <th width="1rem"></th>
+            <th>{{ 'asset-type' | translate}}</th>
+            <th>{{ 'name' | translate}}</th>
+            <th>{{ 'roi' | translate}}</th>
+            <th>{{ 'state' | translate}}</th>
+            <th>{{ 'actions' | translate}}</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @for (pos of positionTable.data; track pos.positionId) {
+            <tr>
+                <td [nzExpand]="expandSet.has(pos.positionId!)" (nzExpandChange)="onExpandChange(pos.positionId!, $event)"></td>
+                <td (click)="onExpandChange(pos.positionId!, !expandSet.has(pos.positionId!))">{{ pos.assetType}}</td>
+                <td (click)="onExpandChange(pos.positionId!, !expandSet.has(pos.positionId!))">{{ pos.label}}</td>
+                <td (click)="onExpandChange(pos.positionId!, !expandSet.has(pos.positionId!))">{{ pos.roi}}</td>
+                <td (click)="onExpandChange(pos.positionId!, !expandSet.has(pos.positionId!))">{{ pos.positionState}}</td>
+                <td>
+                    <button class="bt-mr" (click)="onDeletePosition(pos.positionId!)" nz-button nzShape="circle" nzType="primary" nzSize="small" nzDanger>
+                        <span nz-icon nzType="delete" nzTheme="outline"></span>
+                    </button>
+                    <button class="bt-mr" (click)="onEditPosition(pos.positionId!)" nz-button nzShape="circle" nzType="primary" nzSize="small">
+                        <span nz-icon nzType="edit" nzTheme="outline"></span>
+                    </button>
+                    <button nz-button nzShape="circle" nzType="primary" nzSize="small">
+                        <span nz-icon nzType="plus" nzTheme="outline"></span>
+                    </button>
+                </td>
+
+            </tr>
+            <tr [nzExpand]="expandSet.has(pos.positionId!)">
+                <nz-table #transactionTable
+                          [nzData]="pos.transactions!"
+                          nzOuterBordered
+                          [nzShowPagination]="false" nzSize="small">
+                    <thead>
+                    <tr>
+                        <th>{{ 'type' | translate}}</th>
+                        <th>{{ 'price' | translate}}</th>
+                        <th>{{ 'quantity' | translate}}</th>
+                        <th>{{ 'tax' | translate}}</th>
+                        <th>{{ 'total' | translate}}</th>
+                        <th>{{ 'date' | translate}}</th>
+                        <th>{{ 'notes' | translate}}</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                        @for (t of transactionTable.data; track t.transactionId) {
+                            <tr>
+                                <td>{{t.transactionType}}</td>
+                                <td>{{t.transactionPrice}}</td>
+                                <td>{{t.quantity}}</td>
+                                <td>{{t.tax}}</td>
+                                <td>{{t.total}}</td>
+                                <td>{{t.transactionDate | date }}</td>
+                                <td>{{t.notes}}</td>
+                            </tr>
+                        }
+                    </tbody>
+                </nz-table>
+
+            </tr>
+        }
+    </tbody>
+</nz-table>

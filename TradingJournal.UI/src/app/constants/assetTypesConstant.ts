@@ -1,3 +1,3 @@
 import { AssetType } from "../types/asset.type";
 
-export const AssetTypesConstant: AssetType[] = ['STOCK', "ETF", "INDEX", "CRYPTO", "FOREX", "BOND", "DERIVATIVE", "OTHER"];
+export const AssetTypesConstant: AssetType[] = ['Stock', "Etf", "Index", "Crypto", "Forex", "Bond", "Derivative", "Other"];

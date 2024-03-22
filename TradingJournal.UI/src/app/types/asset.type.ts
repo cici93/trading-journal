@@ -1,1 +1,1 @@
-export type AssetType = 'STOCK' | 'ETF' | 'INDEX' | 'CRYPTO' | 'FOREX' | 'BOND' | 'DERIVATIVE' | 'OTHER';
+export type AssetType = 'Stock' | 'Etf' | 'Index' | 'Crypto' | 'Forex' | 'Bond' | 'Derivative' | 'Other';

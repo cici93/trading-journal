@@ -1,0 +1,30 @@
+<form [formGroup]="positionForm">
+    <div class="form-con">
+
+
+        <nz-select [nzPlaceHolder]="'asset' | translate" formControlName="assetType">
+            @for (asset of AssetTypeConstant; track asset) {
+                <nz-option [nzLabel]="asset | translate" [nzValue]="asset"></nz-option>
+            }
+        </nz-select>
+        <input nz-input placeholder="{{ 'name' | translate }}" formControlName="label" type="text"/>
+
+        <input nz-input [readonly]="true" placeholder="{{ 'state' | translate }}" formControlName="positionState" type="text"/>
+        <input nz-input [readonly]="true" placeholder="{{ 'roi' | translate }}" formControlName="roi" type="text"/>
+    </div>
+</form>
+
+Transactions
+<nz-collapse nzAccordion [nzBordered]="false">
+    @for (t of position?.transactions; track t) {
+        <nz-collapse-panel [nzHeader]="t.transactionType + '    Total: ' + t.total + '    Date: ' + (t.transactionDate | date)">
+            <app-transaction-form [transaction]="t"></app-transaction-form>
+        </nz-collapse-panel>
+
+    }
+</nz-collapse>
+
+
+<button (click)="log()" nz-button nzShape="circle" nzType="primary" nzSize="small">log
+    <span nz-icon nzType="plus" nzTheme="outline"></span>
+</button>

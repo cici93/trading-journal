@@ -1,61 +1,90 @@
 <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
-    <div class="form-con">
-        <nz-radio-group formControlName="transactionType">
-            <label nz-radio nzValue="Buy">{{ 'buy' | translate }}</label>
-            <label nz-radio nzValue="Sell">{{ 'sell' | translate }}</label>
-        </nz-radio-group>
+    <div class="actions">
+        @if (!doEdit) {
+            <button (click)="onAction('edit')" nz-button nzType="primary" nzShape="circle">
+                <span nz-icon nzType="edit" nzTheme="fill"></span>
+            </button>
+        } @else {
+            <button (click)="onAction('cancel')" nz-button nzType="primary" nzShape="circle">
+                <span nz-icon nzType="close" nzTheme="outline"></span>
+            </button>
+        }
 
-        <nz-select [nzPlaceHolder]="'asset' | translate" formControlName="assetType">
-            @for (asset of AssetTypeConstant; track asset) {
-                <nz-option [nzLabel]="asset | translate" [nzValue]="asset"></nz-option>
-            }
-        </nz-select>
+        <button nz-button nzType="primary" nzDanger nzShape="circle">
+            <span nz-icon nzType="delete" nzTheme="fill"></span>
+        </button>
+    </div>
 
-        <input nz-input placeholder="{{ 'name' | translate }}" formControlName="label" type="text"/>
+    <div class="tr-fo">
+        <div class="fo-el-wr">
+            <nz-radio-group formControlName="transactionType">
+                <label nz-radio nzValue="Buy">{{ 'buy' | translate }}</label>
+                <label nz-radio nzValue="Sell">{{ 'sell' | translate }}</label>
+            </nz-radio-group>
+        </div>
 
-        <nz-radio-group (ngModelChange)="onPriceSelect()" [(ngModel)]="priceSelectTotal" [ngModelOptions]="{standalone: true}">
-            <label nz-radio [nzValue]="true">Price total</label>
-            <label nz-radio [nzValue]="false">Price per share</label>
-        </nz-radio-group>
+        <div class="fo-el-wr">
+            <nz-form-label>{{ 'total' | translate }}</nz-form-label>
+            <nz-input-group [nzAddOnAfter]="currencyAddOn">
+                <nz-input-number [nzReadOnly]="true" formControlName="total"></nz-input-number>
+            </nz-input-group>
+        </div>
 
-        <nz-input-group nzCompact>
-            @if (priceSelectTotal) {
-                <nz-input-number [nzPlaceHolder]="'total' | translate"
-                                 formControlName="transactionPrice"
-                                 [style]="isTransactionTypeSell ? 'width: 40%' : 'width: 50%'"></nz-input-number>
-                <nz-input-number [nzPlaceHolder]="'commission' | translate"
-                                 formControlName="commission"
-                                 style="width: 40%"></nz-input-number>
-            } @else {
-                <nz-input-number [nzPlaceHolder]="'per-share' | translate"
-                                 formControlName="transactionPrice"
-                                 [style]="isTransactionTypeSell ? 'width: 40%' : 'width: 50%'"></nz-input-number>
-                <nz-input-number [nzPlaceHolder]="'quantity' | translate"
-                                 formControlName="quantity"
-                                 style="width:15%"></nz-input-number>
-                <nz-input-number [nzPlaceHolder]="'commission' | translate"
-                                 formControlName="commission"
-                                 style="width: 25%"></nz-input-number>
-            }
-            @if (isTransactionTypeSell) {
-                <nz-input-number [nzPlaceHolder]="'tax' | translate"
-                                 formControlName="tax"
-                                 style="width: 10%"></nz-input-number>
-            }
+        <div class="fo-el-wr">
+            <nz-form-label nzRequired>{{ 'price-per-share' | translate }}</nz-form-label>
+            <nz-input-group [nzAddOnAfter]="currencyAddOn">
+                <nz-input-number formControlName="transactionPrice"></nz-input-number>
+            </nz-input-group>
+        </div>
 
-            <nz-select [nzPlaceHolder]="'currency' | translate"
-                       formControlName="currency"
-                       style="width: 10%">
+        <div class="fo-el-wr">
+            <nz-form-label nzRequired>{{ 'quantity' | translate }}</nz-form-label>
+            <nz-input-number formControlName="quantity"></nz-input-number>
+        </div>
+
+        <div class="fo-el-wr">
+            <nz-form-label>{{ 'commission' | translate }}</nz-form-label>
+            <nz-input-group [nzAddOnAfter]="currencyAddOn">
+                <nz-input-number formControlName="commission"></nz-input-number>
+            </nz-input-group>
+        </div>
+
+        <div class="fo-el-wr">
+            <nz-form-label>{{ 'tax' | translate }}</nz-form-label>
+            <nz-input-group [nzAddOnAfter]="currencyAddOn">
+                <nz-input-number formControlName="tax"></nz-input-number>
+            </nz-input-group>
+        </div>
+
+
+
+        <div class="fo-el-wr">
+            <nz-form-label>{{ 'date' | translate }}</nz-form-label>
+            <nz-date-picker formControlName="transactionDate"></nz-date-picker>
+        </div>
+
+        <div class="fo-el-wr">
+            <nz-form-label>{{ 'notes' | translate }}</nz-form-label>
+            <textarea nz-input formControlName="notes" nzAutosize></textarea>
+        </div>
+        <ng-template #currencyAddOn>
+            <nz-select formControlName="currency">
                 @for (cur of CurrenciesConstant | keyvalue; track cur) {
                     <nz-option [nzLabel]="cur.value | translate" [nzValue]="cur.key"></nz-option>
                 }
             </nz-select>
-
-        </nz-input-group>
-
-        <nz-date-picker formControlName="transactionDate"></nz-date-picker>
-
-        <textarea nz-input formControlName="notes" nzAutosize placeholder="{{ 'notes' | translate }}"></textarea>
+        </ng-template>
     </div>
-    <button [disabled]="transactionForm.invalid" nz-button nzType="primary">{{ 'save' | translate }}</button>
 </form>
+<button nz-button (click)="test()" nzType="primary" nzDanger nzShape="circle">
+   formlog
+</button>
+
+<!--        <div class="fo-el-wr">-->
+<!--            <nz-form-label nzRequired>{{ 'currency' | translate }}</nz-form-label>-->
+<!--            <nz-select formControlName="currency">-->
+<!--                @for (cur of CurrenciesConstant | keyvalue; track cur) {-->
+<!--                    <nz-option [nzLabel]="cur.value | translate" [nzValue]="cur.key"></nz-option>-->
+<!--                }-->
+<!--            </nz-select>-->
+<!--        </div>-->

@@ -25,9 +25,9 @@ public class PositionController(IPositionService positionService) : ControllerBa
     }
     
     [HttpPost]
-    public async Task<ActionResult<PositionDto>> CreatePosition([FromBody] TransactionDto transactionDto)
+    public async Task<ActionResult<PositionDto>> CreatePosition([FromBody] PositionDto positionDto)
     {
-        var result = await _positionService.CreatePositionAsync(transactionDto);
+        var result = await _positionService.CreatePositionAsync(positionDto);
         return result.IsSuccess ? Ok(result.Value) : Problem(result.Errors.First().Message);
     }
 

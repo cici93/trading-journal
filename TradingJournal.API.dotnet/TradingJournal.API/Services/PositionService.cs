@@ -49,23 +49,25 @@ public class PositionService(DataContext data, Lazy<ITransactionService> transac
         }
     }
 
-    public async Task<Result<PositionDto>> CreatePositionAsync(TransactionDto transactionDto)
+    public async Task<Result<PositionDto>> CreatePositionAsync(PositionDto positionDto)
     {
         var dataTransaction = await _data.Database.BeginTransactionAsync();
         try
         {
             var position = new Position
             {
+                AssetType = positionDto.AssetType,
                 PositionState = PositionState.Open,
-                Label = transactionDto.Label,
+                Label = positionDto.Label,
                 Transactions = [],
                 CreatedAt = DateTime.UtcNow,
             };
             _data.Positions.Add(position);
             await _data.SaveChangesAsync();
 
+            var transactionDto = positionDto.Transactions.First();
             transactionDto.PositionId = position.PositionId;
-
+            
             var trans = _transactionService.Value;
             var transaction = await trans.CreateInitialTransactionAsync(transactionDto);
             if (transaction.IsFailed)
@@ -100,6 +102,7 @@ public class PositionService(DataContext data, Lazy<ITransactionService> transac
                 Result.Fail($"No position with Id {positionDto.PositionId} found.");
             }
 
+            position.AssetType = positionDto.AssetType;
             position.Label = positionDto.Label;
             position.UpdatedAt = DateTime.UtcNow;
             await _data.SaveChangesAsync();
@@ -171,11 +174,38 @@ public class PositionService(DataContext data, Lazy<ITransactionService> transac
         return new PositionDto
         {
             PositionId = position.PositionId,
+            AssetType = position.AssetType,
             Label = position.Label,
-            Transactions = position.Transactions,
+            Transactions = MapToTransactionDto(position.Transactions),
             PositionState = position.PositionState,
             Roi = position.Roi
         };
+    }
+    
+    private static List<TransactionDto> MapToTransactionDto(List<Transaction> transactions)
+    {
+        List<TransactionDto> tDtos = [];
+
+        foreach (var t in transactions)
+        {
+            var tDto = new TransactionDto
+            {
+                TransactionId = t.TransactionId,
+                TransactionPrice = t.TransactionPrice,
+                TransactionType = t.TransactionType,
+                TransactionDate = t.TransactionDate,
+                Quantity = t.Quantity,
+                Commission = t.Commission,
+                Tax = t.Tax,
+                Total = t.Total,
+                Currency = t.Currency,
+                Notes = t.Notes,
+                PositionId = t.PositionId
+            };
+            tDtos.Add(tDto);
+        }
+
+        return tDtos;
     }
     
     private static (double roi, PositionState state) CalculateRoiAndState(List<Transaction> transactions)

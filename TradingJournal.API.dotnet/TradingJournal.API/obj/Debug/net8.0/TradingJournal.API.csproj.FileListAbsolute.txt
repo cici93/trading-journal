@@ -109,3 +109,4 @@ D:\dev\trading-journal\TradingJournal.API.dotnet\TradingJournal.API\bin\Debug\ne
 D:\dev\trading-journal\TradingJournal.API.dotnet\TradingJournal.API\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\dev\trading-journal\TradingJournal.API.dotnet\TradingJournal.API\obj\Debug\net8.0\EFCoreNpgsqlNetTopologySuite.cs
 D:\dev\trading-journal\TradingJournal.API.dotnet\TradingJournal.API\bin\Debug\net8.0\FluentResults.dll
+D:\dev\trading-journal\TradingJournal.API.dotnet\TradingJournal.API\obj\Debug\net8.0\TradingJournal.API.sourcelink.json

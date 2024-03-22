@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PositionService } from './position.service';
+import { ConfirmationService } from './confirmation.service';
 
-describe('PositionService', () => {
-  let service: PositionService;
+describe('ConfirmationService', () => {
+  let service: ConfirmationService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PositionService);
+    service = TestBed.inject(ConfirmationService);
   });
 
   it('should be created', () => {
