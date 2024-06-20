@@ -46,12 +46,9 @@ export class EventTimelineComponent implements OnInit {
 
     dayViewStartingTime: Date = this.getTime('start');
     dayViewEndTime: Date = this.getTime('end');
-    selectedDay = new Date();
-    weekViewWeekNumber = new Date();
 
     selectedMonth: Date = new Date();
 
-    selectedYear: Date = new Date();
     events: Event[] = [
         {
           companyName: 'Nvidia',
