@@ -98,8 +98,6 @@ export class EventTimelineComponent implements OnInit {
             this.selectableCompanys = data;
             this.isSelectedLoading = false;
         });
-
-
     }
 
     test() {
@@ -137,13 +135,9 @@ export class EventTimelineComponent implements OnInit {
 
     }
 
-
-
-    // get startingWeek() {
-    // }
-
     selectView(view: View) {
         if (this.selectedView !== view) {
+            this.selectedDate = new Date();
             this.selectedView = view;
         }
 
