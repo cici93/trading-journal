@@ -77,7 +77,7 @@ public class PositionService(DataContext data, Lazy<ITransactionService> transac
 
             var tValue = transaction.Value;
 
-            position.Roi = tValue.TransactionType == TransactionType.Buy ? tValue.Total : tValue.Total * -1;
+            // position.Roi = tValue.TransactionType == TransactionType.Buy ? tValue.Total : tValue.Total * -1;
             await _data.SaveChangesAsync();
             
             await dataTransaction.CommitAsync();
@@ -193,11 +193,9 @@ public class PositionService(DataContext data, Lazy<ITransactionService> transac
                 TransactionId = t.TransactionId,
                 TransactionPrice = t.TransactionPrice,
                 TransactionType = t.TransactionType,
-                TransactionDate = t.TransactionDate,
                 Quantity = t.Quantity,
                 Commission = t.Commission,
                 Tax = t.Tax,
-                Total = t.Total,
                 Currency = t.Currency,
                 Notes = t.Notes,
                 PositionId = t.PositionId
@@ -214,16 +212,19 @@ public class PositionService(DataContext data, Lazy<ITransactionService> transac
         var buyCount = 0;
         var sellCount = 0;
 
+        
+        
         foreach (var transaction in transactions)
         {
             if (transaction.TransactionType == TransactionType.Buy)
             {
-                roi += transaction.Total;
+                
+                roi += transaction.TransactionPrice;
                 buyCount++;
             }
             else if (transaction.TransactionType == TransactionType.Sell)
             {
-                roi -= transaction.Total;
+                roi -= transaction.TransactionPrice;
                 sellCount++;
             }
         }

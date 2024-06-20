@@ -84,7 +84,7 @@ export class TransactionFormComponent implements OnChanges, OnInit {
         //     });
     }
 
-    onAction(type: 'edit' | 'delete' | 'cancel') {
+    onAction(type: 'edit' | 'delete' | 'cancel' | 'save') {
         if (type === 'edit') {
             this.doEdit = true;
             this.placeholderTransaction = { ...this.transactionForm.value };

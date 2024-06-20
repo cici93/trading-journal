@@ -17,7 +17,7 @@ public class PositionController(IPositionService positionService) : ControllerBa
         return result.IsSuccess ? Ok(result.Value) : NotFound(result.Errors.First().Message);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id:int}")]
     public async Task<ActionResult<PositionDto>> GetTransactionById(int id)
     {
         var result = await _positionService.GetPositionByIdAsync(id);
@@ -38,7 +38,7 @@ public class PositionController(IPositionService positionService) : ControllerBa
         return result.IsSuccess ? Ok(result.Value) : NotFound(result.Errors.First().Message);
     }
 
-    [HttpDelete("{id}")]
+    [HttpDelete("{id:int}")]
     public async Task<IActionResult> DeletePosition(int id)
     {
         var result = await _positionService.DeletePositionAsync(id);

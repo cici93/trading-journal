@@ -1,0 +1,111 @@
+<div class="timeline-header">
+    @for (view of views; track view) {
+        <span class="selectable-view"
+              [class.selected-view]="view === selectedView"
+              (click)="selectView(view)">
+           {{ view }}
+      </span>
+    }
+</div>
+
+
+<div class="timeline-content"
+     [ngClass]="{
+ 'day-view': selectedView === 'Day',
+ 'week-view': selectedView === 'Week',
+ 'month-view': selectedView === 'Week',
+ 'year-view': selectedView === 'Week',
+ }"
+>
+    <nz-select
+            nzMode="multiple"
+            nzPlaceHolder="{{ 'select-company' | translate }}"
+            nzAllowClear
+            nzShowSearch
+            nzServerSearch
+            [(ngModel)]="selectedCompany"
+            (nzOnSearch)="onSelectSearch($event)"
+    >
+
+        @if (isSelectedLoading) {
+            <nz-option nzDisabled nzCustomContent>
+                <span nz-icon nzType="loading" class="loading-icon"></span>
+                Loading Data...
+            </nz-option>
+        } @else {
+            @for (c of selectableCompanys; track c) {
+                <nz-option [nzValue]="c" [nzLabel]="c"></nz-option>
+            }
+        }
+    </nz-select>
+
+    @switch (selectedView) {
+        @case ('Day') {
+            <div>
+                <nz-date-picker nzMode="date" [(ngModel)]="selectedDate"
+                                (ngModelChange)="updateEventSignal()"></nz-date-picker>
+
+                <nz-time-picker (ngModelChange)="updateEventSignal()"
+                                [(ngModel)]="dayViewStartingTime"></nz-time-picker>
+                -
+                <nz-time-picker (ngModelChange)="updateEventSignal()" [(ngModel)]="dayViewEndTime"></nz-time-picker>
+            </div>
+            @if (dailyEvents()) {
+                @for (event of dailyEvents(); track event) {
+                    <span>{{ event.title }}</span>
+                    <span>{{ event.time }}</span>
+                }
+            }
+        }
+        @case ('Week') {
+            <div>
+                <nz-date-picker nzMode="week" [(ngModel)]="selectedDate"
+                                (ngModelChange)="updateEventSignal()"></nz-date-picker>
+            </div>
+
+            @if(weeklyEvents()) {
+                @for (event of weeklyEvents(); track event) {
+                    <span>{{ event.title }}</span>
+                    <span>{{ event.time }}</span>
+                }
+            }
+
+        }
+        @case ('Month') {
+            <div>
+                <nz-date-picker nzMode="month" [(ngModel)]="selectedDate"
+                                (ngModelChange)="updateEventSignal()"></nz-date-picker>
+            </div>
+
+            @if(monthlyEvents()) {
+                @for (event of monthlyEvents(); track event) {
+                    <span>{{ event.title }}</span>
+                    <span>{{ event.time }}</span>
+                }
+            }
+        }
+        @case ('Year') {
+            <div>
+                <nz-date-picker nzMode="year" [(ngModel)]="selectedDate"
+                                (ngModelChange)="updateEventSignal()"></nz-date-picker>
+            </div>
+
+            @if(yearlyEvents()) {
+                @for (event of yearlyEvents(); track event) {
+                    <span>{{ event.title }}</span>
+                    <span>{{ event.time }}</span>
+                }
+            }
+        }
+        @default {
+            No Events available during that period
+        }
+
+
+    }
+
+
+</div>
+
+
+<button (click)="test()">test</button>

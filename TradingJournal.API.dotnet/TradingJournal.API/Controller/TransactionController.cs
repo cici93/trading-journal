@@ -17,7 +17,7 @@ public class TransactionController(ITransactionService transactionService) : Con
         return result.IsSuccess ? Ok(result.Value) : NotFound(result.Errors.First().Message);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id:int}")]
     public async Task<ActionResult<TransactionDto>> GetTransactionById(int id)
     {
         var result = await _transactionService.GetTransactionByIdAsync(id);

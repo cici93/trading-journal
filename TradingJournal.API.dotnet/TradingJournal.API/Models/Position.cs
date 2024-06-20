@@ -1,9 +1,10 @@
 using System.Text.Json.Serialization;
 using TradingJournal.Constants;
+using TradingJournal.Models.Base;
 
 namespace TradingJournal.Models;
 
-public class Position
+public class Position : BaseEntity
 {
     public int PositionId { get; set; }
 
@@ -18,8 +19,4 @@ public class Position
     public double Roi { get; set; }
 
     public List<Transaction> Transactions { get; set; } = [];
-    
-    public DateTime? CreatedAt { get; set; }
-    
-    public DateTime? UpdatedAt { get; set; }
 }

@@ -10,6 +10,7 @@ import { Position } from "../../interfaces/position.interface";
 import { NzButtonComponent } from "ng-zorro-antd/button";
 import { NzIconDirective } from "ng-zorro-antd/icon";
 import { PositionFormComponent } from "../../components/position-form/position-form.component";
+import { EventTimelineComponent } from "../../components/event-timeline/event-timeline.component";
 
 
 
@@ -21,7 +22,8 @@ import { PositionFormComponent } from "../../components/position-form/position-f
         PositionTableComponent,
         NzButtonComponent,
         NzIconDirective,
-        PositionFormComponent
+        PositionFormComponent,
+        EventTimelineComponent
 
     ],
     templateUrl: './overview.component.html',

@@ -1,0 +1,55 @@
+nz-select {
+  width: 100%;
+}
+
+.timeline-header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  .selectable-view {
+   padding: 4px;
+    cursor: pointer;
+  }
+  .selected-view {
+    font-weight: bold;
+    cursor: default;
+  }
+}
+
+.timeline-content {
+  transition: background-color 1s ease-in;
+}
+
+
+.day-view {
+  //background-color: red;
+  display: flex;
+  flex-flow: column nowrap;
+
+
+  span:nth-of-type(4n-3),
+  span:nth-of-type(4n-2) {
+    background-color: grey;
+  }
+  span:nth-of-type(4n-1),
+  span:nth-of-type(4n) {
+    background-color: red;
+  }
+}
+
+.week-view {
+  //background-color: red;
+  display: flex;
+  flex-flow: column nowrap;
+
+
+  span:nth-of-type(4n-3),
+  span:nth-of-type(4n-2) {
+    background-color: grey;
+  }
+  span:nth-of-type(4n-1),
+  span:nth-of-type(4n) {
+    background-color: red;
+  }
+}
+

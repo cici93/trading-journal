@@ -1,18 +1,23 @@
 <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
     <div class="actions">
         @if (!doEdit) {
-            <button (click)="onAction('edit')" nz-button nzType="primary" nzShape="circle">
+            <button (click)="onAction('edit')" class="edt-bt" nz-button nzType="primary" nzShape="circle">
                 <span nz-icon nzType="edit" nzTheme="fill"></span>
             </button>
+
+            <button (click)="onAction('delete')"  class="dlt-bt" nz-button nzType="primary"  nzShape="circle">
+                <span nz-icon  nzType="delete" nzTheme="fill"></span>
+            </button>
         } @else {
-            <button (click)="onAction('cancel')" nz-button nzType="primary" nzShape="circle">
+            <button (click)="onAction('cancel')" class="cnl-bt" nz-button nzType="primary" nzShape="circle">
                 <span nz-icon nzType="close" nzTheme="outline"></span>
+            </button>
+            <button (click)="onAction('save')" class="sve-bt" nz-button nzType="primary" nzShape="circle">
+                <span nz-icon nzType="save" nzTheme="fill"></span>
             </button>
         }
 
-        <button nz-button nzType="primary" nzDanger nzShape="circle">
-            <span nz-icon nzType="delete" nzTheme="fill"></span>
-        </button>
+
     </div>
 
     <div class="tr-fo">

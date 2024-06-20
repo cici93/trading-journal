@@ -11,16 +11,12 @@ public class TransactionDto
 
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public TransactionType TransactionType { get; set; }
-
-    public DateTime TransactionDate { get; set; }
     
-    public double Quantity { get; set; }
+    public double? Quantity { get; set; }
     
-    public double Commission { get; set; }
+    public double? Commission { get; set; }
     
-    public double Tax { get; set; }
-    
-    public double Total { get; set; }
+    public double? Tax { get; set; }
     
     public string? Currency { get; set; } = string.Empty;
 

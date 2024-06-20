@@ -100,7 +100,6 @@ public class TransactionService(DataContext data, Lazy<IPositionService> positio
             
             transaction.TransactionPrice = transactionDto.TransactionPrice;
             transaction.TransactionType = transactionDto.TransactionType;
-            transaction.TransactionDate = transactionDto.TransactionDate;
             transaction.Quantity = transactionDto.Quantity;
             transaction.Commission = transactionDto.Commission;
             transaction.Tax = transactionDto.Tax;
@@ -167,11 +166,9 @@ public class TransactionService(DataContext data, Lazy<IPositionService> positio
             TransactionId = transaction.TransactionId,
             TransactionPrice = transaction.TransactionPrice,
             TransactionType = transaction.TransactionType,
-            TransactionDate = transaction.TransactionDate,
             Quantity = transaction.Quantity,
             Commission = transaction.Commission,
             Tax = transaction.Tax,
-            Total = transaction.Total,
             Currency = transaction.Currency,
             Notes = transaction.Notes,
             PositionId = transaction.PositionId
@@ -185,11 +182,9 @@ public class TransactionService(DataContext data, Lazy<IPositionService> positio
             TransactionId = transactionDto.TransactionId,
             TransactionPrice = transactionDto.TransactionPrice,
             TransactionType = transactionDto.TransactionType,
-            TransactionDate = transactionDto.TransactionDate,
             Quantity = transactionDto.Quantity,
             Commission = transactionDto.Commission,
             Tax = transactionDto.Tax,
-            Total = transactionDto.Total,
             Currency = transactionDto.Currency,
             Notes = transactionDto.Notes,
             PositionId = transactionDto.PositionId
@@ -198,13 +193,14 @@ public class TransactionService(DataContext data, Lazy<IPositionService> positio
 
     private static double CalculateTotal(TransactionDto transactionDto)
     {
-        return transactionDto.TransactionType switch
-        {
-            TransactionType.Buy => transactionDto.TransactionPrice * transactionDto.Quantity -
-                                   transactionDto.Commission - transactionDto.Tax,
-            TransactionType.Sell => transactionDto.TransactionPrice * transactionDto.Quantity +
-                                    transactionDto.Commission + transactionDto.Tax,
-            _ => 0
-        };
+        return 100;
+        // return transactionDto.TransactionType switch
+        // {
+        //     TransactionType.Buy => transactionDto.TransactionPrice * transactionDto.Quantity -
+        //                            transactionDto.Commission - transactionDto.Tax,
+        //     TransactionType.Sell => transactionDto.TransactionPrice * transactionDto.Quantity +
+        //                             transactionDto.Commission + transactionDto.Tax,
+        //     _ => 0
+        // };
     }
 }
