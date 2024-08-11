@@ -1,0 +1,617 @@
+[
+  {
+    "positionId": -456630,
+    "assetName": "Robel and Sons",
+    "total": 245.65,
+    "roi": -112.41,
+    "aggregate": 73.3,
+    "transactions": [
+      {
+        "transactionId": -626246,
+        "transactionPrice": 90.45,
+        "transactionType": "BUY",
+        "transactionDate": "1993-12-21T16:57:17.872Z",
+        "quantity": 1433,
+        "total": 878
+      },
+      {
+        "transactionId": 411864,
+        "transactionPrice": 460.15,
+        "transactionType": "BUY",
+        "transactionDate": "1986-03-06T00:17:50.887Z",
+        "quantity": 920,
+        "total": 1128
+      },
+      {
+        "transactionId": 873266,
+        "transactionPrice": 296.98,
+        "transactionType": "BUY",
+        "transactionDate": "1992-11-26T01:55:01.169Z",
+        "quantity": 1277,
+        "total": 285
+      },
+      {
+        "transactionId": 228609,
+        "transactionPrice": -34.38,
+        "transactionType": "BUY",
+        "transactionDate": "1975-12-14T09:57:04.007Z",
+        "quantity": 601,
+        "total": 898
+      }
+    ]
+  },
+  {
+    "positionId": 964914,
+    "assetName": "Grady, Abbott and Dooley",
+    "total": -243.76,
+    "roi": 3.65,
+    "aggregate": 497.29,
+    "transactions": [
+      {
+        "transactionId": 108970,
+        "transactionPrice": 92.37,
+        "transactionType": "BUY",
+        "transactionDate": "1973-10-25T15:17:05.804Z",
+        "quantity": 169,
+        "total": 391
+      },
+      {
+        "transactionId": -701791,
+        "transactionPrice": 473.6,
+        "transactionType": "BUY",
+        "transactionDate": "1985-12-01T05:13:28.481Z",
+        "quantity": 753,
+        "total": 255
+      },
+      {
+        "transactionId": -387979,
+        "transactionPrice": -487.33,
+        "transactionType": "BUY",
+        "transactionDate": "1996-03-22T23:54:35.873Z",
+        "quantity": 281,
+        "total": 1397
+      },
+      {
+        "transactionId": -514309,
+        "transactionPrice": 383.23,
+        "transactionType": "BUY",
+        "transactionDate": "1976-05-09T19:51:33.490Z",
+        "quantity": 335,
+        "total": 38
+      }
+    ]
+  },
+  {
+    "positionId": -934259,
+    "assetName": "Beier, Upton and Keebler",
+    "total": 55.04,
+    "roi": -158.74,
+    "aggregate": -357.15,
+    "transactions": [
+      {
+        "transactionId": -490461,
+        "transactionPrice": 419.47,
+        "transactionType": "BUY",
+        "transactionDate": "2014-06-25T17:47:24.419Z",
+        "quantity": 878,
+        "total": 640
+      },
+      {
+        "transactionId": -874812,
+        "transactionPrice": 280.85,
+        "transactionType": "BUY",
+        "transactionDate": "2007-01-10T03:33:35.410Z",
+        "quantity": 1492,
+        "total": 974
+      },
+      {
+        "transactionId": -25570,
+        "transactionPrice": -70.18,
+        "transactionType": "BUY",
+        "transactionDate": "2005-09-03T12:46:23.430Z",
+        "quantity": 738,
+        "total": 745
+      },
+      {
+        "transactionId": -454022,
+        "transactionPrice": 440.27,
+        "transactionType": "BUY",
+        "transactionDate": "1982-05-06T03:46:41.101Z",
+        "quantity": 56,
+        "total": 1111
+      }
+    ]
+  },
+  {
+    "positionId": 383723,
+    "assetName": "Feeney Group",
+    "total": -372.85,
+    "roi": 174.85,
+    "aggregate": 390.21,
+    "transactions": [
+      {
+        "transactionId": 270917,
+        "transactionPrice": -186.8,
+        "transactionType": "BUY",
+        "transactionDate": "2007-04-03T12:01:55.462Z",
+        "quantity": 1363,
+        "total": 93
+      },
+      {
+        "transactionId": 26247,
+        "transactionPrice": -474.41,
+        "transactionType": "BUY",
+        "transactionDate": "1998-04-23T01:01:20.096Z",
+        "quantity": 444,
+        "total": 971
+      },
+      {
+        "transactionId": -52068,
+        "transactionPrice": 223.93,
+        "transactionType": "BUY",
+        "transactionDate": "1984-04-17T12:15:50.559Z",
+        "quantity": 1313,
+        "total": 1322
+      },
+      {
+        "transactionId": -586539,
+        "transactionPrice": -20.08,
+        "transactionType": "BUY",
+        "transactionDate": "2014-06-16T04:32:25.802Z",
+        "quantity": 1461,
+        "total": 1311
+      }
+    ]
+  },
+  {
+    "positionId": -920886,
+    "assetName": "Durgan - Morar",
+    "total": -386.02,
+    "roi": 259.07,
+    "aggregate": -290.66,
+    "transactions": [
+      {
+        "transactionId": 447539,
+        "transactionPrice": -199.11,
+        "transactionType": "BUY",
+        "transactionDate": "2005-05-14T14:51:39.969Z",
+        "quantity": 834,
+        "total": 1471
+      },
+      {
+        "transactionId": 435435,
+        "transactionPrice": -379.56,
+        "transactionType": "BUY",
+        "transactionDate": "2005-10-24T15:21:50.588Z",
+        "quantity": 1334,
+        "total": 162
+      },
+      {
+        "transactionId": -587843,
+        "transactionPrice": -314.66,
+        "transactionType": "BUY",
+        "transactionDate": "2008-03-21T14:56:05.319Z",
+        "quantity": 1385,
+        "total": 1304
+      },
+      {
+        "transactionId": -864596,
+        "transactionPrice": 400.6,
+        "transactionType": "BUY",
+        "transactionDate": "2008-12-05T10:26:59.747Z",
+        "quantity": 121,
+        "total": 107
+      }
+    ]
+  },
+  {
+    "positionId": -541449,
+    "assetName": "Trantow - Daniel",
+    "total": 351.55,
+    "roi": -418.03,
+    "aggregate": 165.95,
+    "transactions": [
+      {
+        "transactionId": -101624,
+        "transactionPrice": -103.89,
+        "transactionType": "BUY",
+        "transactionDate": "1995-09-12T00:48:42.705Z",
+        "quantity": 1188,
+        "total": 602
+      },
+      {
+        "transactionId": -27061,
+        "transactionPrice": 255.62,
+        "transactionType": "BUY",
+        "transactionDate": "1984-04-18T03:07:27.375Z",
+        "quantity": 943,
+        "total": 131
+      },
+      {
+        "transactionId": -993389,
+        "transactionPrice": -75.02,
+        "transactionType": "BUY",
+        "transactionDate": "1988-03-09T03:11:19.697Z",
+        "quantity": 1425,
+        "total": 779
+      },
+      {
+        "transactionId": -173779,
+        "transactionPrice": -195.54,
+        "transactionType": "BUY",
+        "transactionDate": "1970-05-04T10:51:22.569Z",
+        "quantity": 321,
+        "total": 1337
+      }
+    ]
+  },
+  {
+    "positionId": -475002,
+    "assetName": "Hansen and Sons",
+    "total": -253.63,
+    "roi": 97.97,
+    "aggregate": 42.51,
+    "transactions": [
+      {
+        "transactionId": -693041,
+        "transactionPrice": 407.93,
+        "transactionType": "BUY",
+        "transactionDate": "1997-04-09T21:08:38.037Z",
+        "quantity": 1056,
+        "total": 1049
+      },
+      {
+        "transactionId": 260389,
+        "transactionPrice": 104.33,
+        "transactionType": "BUY",
+        "transactionDate": "1988-03-07T10:36:43.775Z",
+        "quantity": 889,
+        "total": 832
+      },
+      {
+        "transactionId": 764151,
+        "transactionPrice": -228.22,
+        "transactionType": "BUY",
+        "transactionDate": "2007-11-01T11:30:44.425Z",
+        "quantity": 1174,
+        "total": 434
+      },
+      {
+        "transactionId": 461219,
+        "transactionPrice": -143.7,
+        "transactionType": "BUY",
+        "transactionDate": "2022-09-10T19:43:42.709Z",
+        "quantity": 580,
+        "total": 320
+      }
+    ]
+  },
+  {
+    "positionId": 259106,
+    "assetName": "Pacocha, Dietrich and Russel",
+    "total": 436.57,
+    "roi": -150.41,
+    "aggregate": 459.56,
+    "transactions": [
+      {
+        "transactionId": -91806,
+        "transactionPrice": 146.28,
+        "transactionType": "BUY",
+        "transactionDate": "2007-03-03T08:39:01.834Z",
+        "quantity": 1012,
+        "total": 452
+      },
+      {
+        "transactionId": -76276,
+        "transactionPrice": -74.31,
+        "transactionType": "BUY",
+        "transactionDate": "2001-04-21T05:48:19.734Z",
+        "quantity": 1002,
+        "total": 469
+      },
+      {
+        "transactionId": 670481,
+        "transactionPrice": 172.5,
+        "transactionType": "BUY",
+        "transactionDate": "1992-11-28T00:59:47.846Z",
+        "quantity": 635,
+        "total": 950
+      },
+      {
+        "transactionId": -897253,
+        "transactionPrice": -215.12,
+        "transactionType": "BUY",
+        "transactionDate": "2002-10-10T04:07:27.888Z",
+        "quantity": 1250,
+        "total": 1165
+      }
+    ]
+  },
+  {
+    "positionId": 233363,
+    "assetName": "Steuber Inc",
+    "total": -365.54,
+    "roi": -83.14,
+    "aggregate": 385.93,
+    "transactions": [
+      {
+        "transactionId": 378832,
+        "transactionPrice": 431.98,
+        "transactionType": "BUY",
+        "transactionDate": "2007-07-08T19:54:47.470Z",
+        "quantity": 997,
+        "total": 751
+      },
+      {
+        "transactionId": 555986,
+        "transactionPrice": -427.15,
+        "transactionType": "BUY",
+        "transactionDate": "2021-01-17T22:46:38.440Z",
+        "quantity": 353,
+        "total": 37
+      },
+      {
+        "transactionId": 499160,
+        "transactionPrice": -131.43,
+        "transactionType": "BUY",
+        "transactionDate": "2003-01-15T11:23:00.254Z",
+        "quantity": 909,
+        "total": 349
+      },
+      {
+        "transactionId": -33599,
+        "transactionPrice": 366.62,
+        "transactionType": "BUY",
+        "transactionDate": "1994-08-29T00:51:54.850Z",
+        "quantity": 580,
+        "total": 801
+      }
+    ]
+  },
+  {
+    "positionId": 846527,
+    "assetName": "Blanda and Sons",
+    "total": 121.2,
+    "roi": 367.45,
+    "aggregate": 201.94,
+    "transactions": [
+      {
+        "transactionId": -40942,
+        "transactionPrice": -10.59,
+        "transactionType": "BUY",
+        "transactionDate": "1992-04-13T18:40:26.643Z",
+        "quantity": 1179,
+        "total": 525
+      },
+      {
+        "transactionId": -329814,
+        "transactionPrice": -202.97,
+        "transactionType": "BUY",
+        "transactionDate": "1973-03-08T12:49:49.932Z",
+        "quantity": 379,
+        "total": 142
+      },
+      {
+        "transactionId": 772523,
+        "transactionPrice": -111.36,
+        "transactionType": "BUY",
+        "transactionDate": "2003-03-10T23:10:06.367Z",
+        "quantity": 805,
+        "total": 1017
+      },
+      {
+        "transactionId": 186789,
+        "transactionPrice": -468.2,
+        "transactionType": "BUY",
+        "transactionDate": "2014-05-04T17:15:50.748Z",
+        "quantity": 1442,
+        "total": 1087
+      }
+    ]
+  },
+  {
+    "positionId": 586847,
+    "assetName": "Mohr, Padberg and Morar",
+    "total": -453.52,
+    "roi": -103.13,
+    "aggregate": -285.87,
+    "transactions": [
+      {
+        "transactionId": -482140,
+        "transactionPrice": -495.67,
+        "transactionType": "BUY",
+        "transactionDate": "1970-04-18T11:27:06.251Z",
+        "quantity": 1465,
+        "total": 870
+      },
+      {
+        "transactionId": 357081,
+        "transactionPrice": -321.39,
+        "transactionType": "BUY",
+        "transactionDate": "2012-07-01T04:49:00.014Z",
+        "quantity": 48,
+        "total": 1443
+      },
+      {
+        "transactionId": -595292,
+        "transactionPrice": -115.22,
+        "transactionType": "BUY",
+        "transactionDate": "2017-12-04T23:00:09.045Z",
+        "quantity": 1026,
+        "total": 617
+      },
+      {
+        "transactionId": 871671,
+        "transactionPrice": -155.54,
+        "transactionType": "BUY",
+        "transactionDate": "1994-03-14T06:18:38.978Z",
+        "quantity": 303,
+        "total": 256
+      }
+    ]
+  },
+  {
+    "positionId": 884300,
+    "assetName": "Ziemann - Dickinson",
+    "total": -430.71,
+    "roi": 256.07,
+    "aggregate": 400.97,
+    "transactions": [
+      {
+        "transactionId": -441280,
+        "transactionPrice": -95.4,
+        "transactionType": "BUY",
+        "transactionDate": "1996-01-27T21:07:02.670Z",
+        "quantity": 1431,
+        "total": 165
+      },
+      {
+        "transactionId": 223716,
+        "transactionPrice": 469.06,
+        "transactionType": "BUY",
+        "transactionDate": "2023-03-23T09:25:59.922Z",
+        "quantity": 945,
+        "total": 491
+      },
+      {
+        "transactionId": 229742,
+        "transactionPrice": 399.42,
+        "transactionType": "BUY",
+        "transactionDate": "1991-08-06T21:02:35.195Z",
+        "quantity": 1091,
+        "total": 803
+      },
+      {
+        "transactionId": -722201,
+        "transactionPrice": 60.01,
+        "transactionType": "BUY",
+        "transactionDate": "1984-11-11T22:27:02.758Z",
+        "quantity": 1056,
+        "total": 506
+      }
+    ]
+  },
+  {
+    "positionId": 716607,
+    "assetName": "Cole - Bayer",
+    "total": -70.59,
+    "roi": 37.95,
+    "aggregate": 22.3,
+    "transactions": [
+      {
+        "transactionId": -715416,
+        "transactionPrice": 206.27,
+        "transactionType": "BUY",
+        "transactionDate": "2010-02-15T20:42:17.561Z",
+        "quantity": 1446,
+        "total": 898
+      },
+      {
+        "transactionId": -393519,
+        "transactionPrice": -373.67,
+        "transactionType": "BUY",
+        "transactionDate": "2003-10-21T11:35:06.148Z",
+        "quantity": 145,
+        "total": 1046
+      },
+      {
+        "transactionId": -345288,
+        "transactionPrice": 180.83,
+        "transactionType": "BUY",
+        "transactionDate": "2004-02-12T17:41:49.786Z",
+        "quantity": 220,
+        "total": 1049
+      },
+      {
+        "transactionId": 738046,
+        "transactionPrice": 186,
+        "transactionType": "BUY",
+        "transactionDate": "2011-04-20T14:02:26.509Z",
+        "quantity": 1316,
+        "total": 963
+      }
+    ]
+  },
+  {
+    "positionId": -312993,
+    "assetName": "Farrell LLC",
+    "total": -38.83,
+    "roi": 128.53,
+    "aggregate": 260.72,
+    "transactions": [
+      {
+        "transactionId": -337074,
+        "transactionPrice": -466.4,
+        "transactionType": "BUY",
+        "transactionDate": "2014-05-07T08:45:48.545Z",
+        "quantity": 506,
+        "total": 312
+      },
+      {
+        "transactionId": -729941,
+        "transactionPrice": 418.64,
+        "transactionType": "BUY",
+        "transactionDate": "1983-11-24T10:39:55.102Z",
+        "quantity": 576,
+        "total": 949
+      },
+      {
+        "transactionId": -854395,
+        "transactionPrice": -87.68,
+        "transactionType": "BUY",
+        "transactionDate": "2000-06-25T22:56:19.866Z",
+        "quantity": 1267,
+        "total": 472
+      },
+      {
+        "transactionId": 967955,
+        "transactionPrice": 95.06,
+        "transactionType": "BUY",
+        "transactionDate": "1988-03-18T20:37:33.226Z",
+        "quantity": 1433,
+        "total": 1229
+      }
+    ]
+  },
+  {
+    "positionId": -625994,
+    "assetName": "Yundt and Sons",
+    "total": -174.77,
+    "roi": -146.96,
+    "aggregate": -0.76,
+    "transactions": [
+      {
+        "transactionId": 737266,
+        "transactionPrice": -330.6,
+        "transactionType": "BUY",
+        "transactionDate": "1974-01-09T17:49:30.633Z",
+        "quantity": 298,
+        "total": 778
+      },
+      {
+        "transactionId": -500716,
+        "transactionPrice": -390.38,
+        "transactionType": "BUY",
+        "transactionDate": "2024-03-30T15:48:56.268Z",
+        "quantity": 310,
+        "total": 1212
+      },
+      {
+        "transactionId": 845915,
+        "transactionPrice": -358.78,
+        "transactionType": "BUY",
+        "transactionDate": "2020-08-07T08:25:41.505Z",
+        "quantity": 1298,
+        "total": 320
+      },
+      {
+        "transactionId": 7988,
+        "transactionPrice": 280.85,
+        "transactionType": "BUY",
+        "transactionDate": "1970-07-13T19:59:06.896Z",
+        "quantity": 918,
+        "total": 693
+      }
+    ]
+  }
+]

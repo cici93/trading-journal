@@ -1,0 +1,39 @@
+:host {
+  height: 7rem;
+  max-width: 10rem;
+  border-radius: 2px;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 4px;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+  box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+
+  &:hover {
+    //background: $secondary-color;
+    color: white;
+  }
+
+  .header {
+    font-size: 18px;
+  }
+
+  span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}

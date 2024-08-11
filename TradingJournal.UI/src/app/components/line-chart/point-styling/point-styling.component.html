@@ -1,0 +1,27 @@
+<!--@defer (when chartData.length > 0) {-->
+<!--    <div style="width: 100%; height: 100%;">-->
+<!--        <canvas-->
+<!--                baseChart-->
+<!--                [datasets]="chartData"-->
+<!--                [labels]="chartLabels"-->
+<!--                [options]="chartOptions"-->
+<!--                [type]="'line'"-->
+<!--                [legend]="false"-->
+<!--                (chartHover)="onChartHover($event)"-->
+<!--                (chartClick)="onChartClick($event)"-->
+<!--        ></canvas>-->
+<!--    </div>-->
+<!--}-->
+@if (show) {
+    <canvas baseChart
+            [legend]="false"
+            width="100%"
+            height="100%"
+            type="line"
+            [options]="options"
+            [data]="chartDataSignal()"></canvas>
+}
+
+<button (click)="log()">
+    log
+</button>

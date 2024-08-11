@@ -1,0 +1,22 @@
+//@import '../../../assets/styles/variables';
+
+#chip-button {
+  color: white;
+  border-radius: 50px;
+  display: flex;
+  //background-color: $primary-color;
+  //border: 1px solid $primary-color;
+  cursor: pointer;
+  transition: background 0.1s ease;
+  padding: 0.5rem;
+  &:active {
+    //background-color: $secondary-color;
+  }
+}
+
+.active {
+  background-color: white !important;
+  &:active {
+    //background-color: $secondary-color !important;
+  }
+}

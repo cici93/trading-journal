@@ -1,0 +1,21 @@
+@if(data()) {
+    <div class="card-header">
+        <div class="card-title">
+            <span class="header-font">{{data()?.ticker}}</span>
+            <span class="header-font">{{data()?.price}}</span>
+        </div>
+        <span class="header-font">{{data()?.companyName}}</span>
+    </div>
+
+    <div class="data-grid">
+        <span>{{data()?.change}}</span>
+        <span>{{data()?.changePercent}}%</span>
+        <span>07.08.2024</span>
+    </div>
+    <div class="data-grid">
+        <span>{{data()?.week52High}}</span>
+        <span>{{data()?.week52Low}}</span>
+        <span>Week 52 High</span>
+        <span>Week 52 Low</span>
+    </div>
+}

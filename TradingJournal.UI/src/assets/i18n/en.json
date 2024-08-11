@@ -42,5 +42,9 @@
     "yes": "Yes",
     "no": "No",
     "price-per-share": "Price per share",
-    "select-company": "Select one or more companies"
+    "select-company": "Select one or more companies",
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "search": "Search",
+    "no-results": "No results"
 }

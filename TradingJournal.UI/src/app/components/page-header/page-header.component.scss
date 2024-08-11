@@ -1,0 +1,17 @@
+
+:host {
+  position: sticky;
+  top: 0;
+  & div:first-child {
+    height: auto;
+    width: 100%;
+    padding: var(--element-padding);
+    z-index: 100;
+    background: var(--primary-color-mono);
+    color: var(--color);
+    //border-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    box-shadow: var(--element-box-shadow);
+  }
+}

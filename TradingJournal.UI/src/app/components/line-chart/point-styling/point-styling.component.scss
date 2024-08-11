@@ -1,0 +1,9 @@
+:host {
+  height: 100%;
+  width: 100%;
+}
+div:first-child {
+  padding: var(--element-padding);
+  overflow: auto;
+  border-radius: 5px;
+}

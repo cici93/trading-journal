@@ -1,9 +1,51 @@
-<!--<button (click)="log()" nz-button nzShape="circle" nzType="primary" nzSize="small">log-->
-<!--    <span nz-icon nzType="plus" nzTheme="outline"></span>-->
-<!--</button>-->
+<button (click)="increment()">Increment
+</button>
+<button (click)="getIncrementedValue()">Get Count
+</button>
+<!--<app-page-header>-->
+<!--    <div class="header-content">-->
+<!--        <div>-->
+<!--            <h3 class="clr-white"><b>Total: 85.261,86€</b></h3>-->
+<!--            <h3 class="clr-white">Open Positions</h3>-->
+<!--        </div>-->
 
-<!--<app-position-table [transactions]="transactions" (deleteOutput)="deletePosition($event)"></app-position-table>-->
-<!--<app-position-form [position]="positions[0]"></app-position-form>-->
+<!--        &lt;!&ndash;        <app-vertical-div></app-vertical-div>&ndash;&gt;-->
 
-<app-event-timeline>
-</app-event-timeline>
+<!--        &lt;!&ndash;        <div class="actions">&ndash;&gt;-->
+<!--        &lt;!&ndash;            <img tabindex="0" [class.active-view]="selectedView === 'Table'" class="action-icon" (click)="changeView('Table')" src="../../../assets/icons/data_table_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="grid-view">&ndash;&gt;-->
+<!--        &lt;!&ndash;            <img tabindex="0" [class.active-view]="selectedView === 'Tile'" class="action-icon" (click)="changeView('Tile')" src="../../../assets/icons/grid_view_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="grid-view">&ndash;&gt;-->
+<!--        &lt;!&ndash;            <app-vertical-div ></app-vertical-div>&ndash;&gt;-->
+<!--        &lt;!&ndash;            <div class="chip-buttons">&ndash;&gt;-->
+<!--        &lt;!&ndash;                @for (assetType of assetTypes; track assetType) {&ndash;&gt;-->
+<!--        &lt;!&ndash;                    <app-chip-button [label]="assetType" (onClick)="onChipToggle($event)"></app-chip-button>&ndash;&gt;-->
+<!--        &lt;!&ndash;                }&ndash;&gt;-->
+
+<!--        &lt;!&ndash;            </div>&ndash;&gt;-->
+<!--        &lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--    </div>-->
+<!--</app-page-header>-->
+
+<!--<div class="content">-->
+<!--    <div>-->
+
+
+<!--        @if (selectedView === 'Tile') {-->
+<!--            <div class="pos-cards">-->
+<!--                @for (position of positions; track position.positionId) {-->
+<!--                    <app-position-card [position]="position"></app-position-card>-->
+<!--                }-->
+<!--            </div>-->
+<!--        } @else {-->
+<!--            <app-position-table [transactions]="positions"></app-position-table>-->
+
+<!--        }-->
+
+<!--    </div>-->
+
+
+<!--    &lt;!&ndash;    <app-vertical-div [color]="'gray'"></app-vertical-div>&ndash;&gt;-->
+<!--    &lt;!&ndash;    <div class="div1"> </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;    <app-pie-chart></app-pie-chart>&ndash;&gt;-->
+
+<!--</div>-->

@@ -1,1 +1,8 @@
+<app-side-menu></app-side-menu>
 <router-outlet></router-outlet>
+
+@if(loading$ | async) {
+
+    <app-loading-indicator></app-loading-indicator>
+
+}

@@ -1,0 +1,29 @@
+{
+  "light": {
+    "--primary-color": "#405fa1",
+    "--primary-color-mono": "#6291f6",
+    "--secondary-color": "#b3bbc7",
+    "--secondary-complement": "#c7bfb3",
+    "--background-color": "white",
+    "--color": "black",
+    "--element-padding": "0.25rem",
+    "--border-radius": "5px",
+    "--gradient-linear-element": "linear-gradient(45deg, rgba(0,8,120,1) 35%, rgba(95,184,224,1) 100%)",
+    "--side-bar-background": "white",
+    "--side-bar-box-shadow": "inset -5px 0px 10px rgba(0, 0, 0, 0.1)",
+    "--element-box-shadow": "inset 0px 0px 10px rgba(0, 0, 0, 0.1)"
+  },
+  "dark": {
+    "--primary-color": "#0e235f",
+    "--secondary-color": "#111b37",
+    "--secondary-complement": "#b29455",
+    "--background-color": "black",
+    "--color": "white",
+    "--element-padding": "0.25rem",
+    "--border-radius": "5px",
+    "--gradient-linear-element": "linear-gradient(45deg, rgba(95,184,224,1) 35%, rgba(0,8,120,1) 100%)",
+    "--side-bar-background": "black",
+    "--side-bar-box-shadow": "inset -5px 0px 10px rgba(255, 255, 255, 0.3)",
+    "--element-box-shadow": "inset 0px 0px 10px rgba(255, 255, 255, 0.3)"
+  }
+}

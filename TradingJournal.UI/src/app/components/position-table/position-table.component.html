@@ -18,7 +18,7 @@
             <tr>
                 <td [nzExpand]="expandSet.has(pos.positionId!)" (nzExpandChange)="onExpandChange(pos.positionId!, $event)"></td>
                 <td (click)="onExpandChange(pos.positionId!, !expandSet.has(pos.positionId!))">{{ pos.assetType}}</td>
-                <td (click)="onExpandChange(pos.positionId!, !expandSet.has(pos.positionId!))">{{ pos.label}}</td>
+                <td (click)="onExpandChange(pos.positionId!, !expandSet.has(pos.positionId!))">{{ pos.assetName}}</td>
                 <td (click)="onExpandChange(pos.positionId!, !expandSet.has(pos.positionId!))">{{ pos.roi}}</td>
                 <td (click)="onExpandChange(pos.positionId!, !expandSet.has(pos.positionId!))">{{ pos.positionState}}</td>
                 <td>

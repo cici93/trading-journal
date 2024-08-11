@@ -1,0 +1,57 @@
+<div class="content">
+    <div class="positions">
+        <table>
+            <tr class="sticky-header">
+                <th class="radius-top" colspan="3">
+                    <div class="pos-actions">
+                        <img tabindex="0" [class.active-view]="selectedView === 'Table'" class="action-icon"
+                             (click)="changeView('Table')"
+                             src="../../../assets/icons/data_table_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"
+                             alt="grid-view">
+                        <img tabindex="0" [class.active-view]="selectedView === 'Tile'" class="action-icon"
+                             (click)="changeView('Tile')"
+                             src="../../../assets/icons/grid_view_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"
+                             alt="grid-view">
+
+                        <app-search-bar (searchInputEvent)="filterData($event)"></app-search-bar>
+                    </div>
+                </th>
+            </tr>
+            <div>
+                @if (selectedView === 'Table') {
+                    @for (pos of filteredPositionSignal(); track pos) {
+
+                        <tr style="height: 24px;" class="data-row" [class.active-row]="selectedPosition === pos"
+                            (click)="updateData(pos)">
+                            <td style="width: 50%;" class="crs-pointer">{{ pos.assetName }}</td>
+                            <td style="width: 25%" class="crs-pointer">{{ pos.total }}</td>
+                            <td style="width: 25%" class="crs-pointer">{{ pos.roi }}</td>
+                        </tr>
+
+                    }
+                } @else {
+                    <div class="pos-cards">
+                        @for (pos of filteredPositionSignal(); track pos) {
+                            <app-position-card [class.active-row]="selectedPosition === pos"
+                                               (click)="updateData(pos)"
+                                               [position]="pos"></app-position-card>
+                        }
+                    </div>
+                }
+            </div>
+            <tr class="sticky-footer">
+                <th class="radius-bottom">
+
+                    <div class="footer-content">
+                        <p>Total</p>
+                        <p>123123</p>
+                        <p>1231232</p>
+                    </div>
+                </th>
+
+            </tr>
+        </table>
+    </div>
+
+<!--    <app-point-styling [chartData]="chartData" [chartLabels]="chartLabels"></app-point-styling>-->
+</div>

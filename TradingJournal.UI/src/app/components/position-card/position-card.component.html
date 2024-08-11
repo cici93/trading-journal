@@ -1,0 +1,6 @@
+@defer (when position) {
+    <span class="header">{{ position?.assetName }}</span>
+    <span>{{ position?.total}}</span>
+    <span [class.green]="position?.roi! >= 0" [class.red]="position?.roi! < 0" >{{ position?.roi! > 0 ? '+' + position?.roi! : position?.roi!}}</span>
+    <span>{{ position?.aggregate}}</span>
+}

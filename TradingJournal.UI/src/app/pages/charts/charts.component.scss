@@ -1,0 +1,26 @@
+:host {
+  //padding: var(--element-padding);
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  grid-template-rows: 1fr ;
+  gap: var(--element-padding);
+  overflow: auto;
+}
+.stock-card {
+  height: 50px;
+  width: 150px;
+  background: green;
+}

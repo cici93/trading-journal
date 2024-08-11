@@ -1,0 +1,122 @@
+:host {
+  position: relative;
+  top: 0;
+  height: 100vh;
+}
+
+.menu-con {
+  display: flex;
+  flex-flow: column nowrap;
+  background: var(--side-bar-background);
+  width: 10rem;
+  height: 100%;
+  transition: width .25s ease-in-out;
+  overflow: hidden;
+  gap: 4px;
+  padding: var(--element-padding);
+  box-shadow: var(--side-bar-box-shadow);
+  position: sticky;
+  top: 0;
+
+  &:last-child {
+    margin-top: auto;
+  }
+}
+
+.menu-item {
+  color: var(--color);
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 100%;
+  padding: var(--element-padding);
+  transition: 50ms ease-in;
+  border-radius: 5px;
+  font-size: 20px;
+  &:hover {
+    background: var(--secondary-color);
+    color: var(--color);
+    cursor: pointer;
+    .menu-icon {
+      fill: var(--color);
+    }
+  }
+  img {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.5rem;
+  }
+}
+
+.active-route {
+  background: var(--primary-color);
+  color: var(--background-color);
+  .menu-icon {
+    fill: var(--background-color);
+  }
+  span {
+    color: var(--background-color);
+    &:hover {
+      color: var(--color);
+}
+  }
+}
+
+.activeHide {
+  width: 40px;
+}
+
+.theme-wrapper {
+  margin-top: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 4px;
+}
+
+.theme-switcher {
+  color: var(--color);
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: var(--element-padding);
+  transition: 50ms ease-in;
+  border-radius: 5px;
+  font-size: 20px;
+  &:hover {
+    background: var(--secondary-color);
+    color: var(--color);
+    cursor: pointer;
+    .menu-icon {
+      fill: var(--color);
+    }
+  }
+  img {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.5rem;
+  }
+}
+
+.menu-icon {
+  margin-right: 16px;
+}
+
+.ham-icon {
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  max-height: 5rem;
+  max-width: 5rem;
+  padding: var(--element-padding);
+  &:hover {
+    background: var(--secondary-color);
+  }
+}
+
+.icon, .menu-icon, .ham-icon {
+  fill: var(--color);
+  transition: transform 0.25s ease-in-out;
+  min-height: 24px;
+  min-width: 24px;
+  max-height: 24px;
+  max-width: 24px;
+}

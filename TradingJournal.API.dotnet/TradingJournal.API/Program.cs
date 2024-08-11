@@ -14,10 +14,10 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 
 
 //Add db service
-var connectionString = builder.Configuration.GetConnectionString("Postgres");
-builder.Services.AddDbContext<DataContext>(options => 
-    options.UseNpgsql(connectionString)
-);
+// var connectionString = builder.Configuration.GetConnectionString("Postgres");
+// builder.Services.AddDbContext<DataContext>(options => 
+//     options.UseNpgsql(connectionString)
+// );
 
 //Add Cors
 builder.Services.AddCors(options =>
@@ -34,15 +34,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Custom services
-builder.Services.AddScoped<ITransactionService, TransactionService>();
-builder.Services.AddScoped<IPositionService, PositionService>();
+// builder.Services.AddScoped<ITransactionService, TransactionService>();
+// builder.Services.AddScoped<IPositionService, PositionService>();
+builder.Services.AddScoped<IDataService, DataService>();
+
 
 //Lazy services
-builder.Services.AddScoped(provider => new Lazy<ITransactionService>(
-    provider.GetRequiredService<ITransactionService>));
-
-builder.Services.AddScoped(provider => new Lazy<IPositionService>(
-    provider.GetRequiredService<IPositionService>));
+// builder.Services.AddScoped(provider => new Lazy<ITransactionService>(
+//     provider.GetRequiredService<ITransactionService>));
+//
+// builder.Services.AddScoped(provider => new Lazy<IPositionService>(
+//     provider.GetRequiredService<IPositionService>));
 
 
 var app = builder.Build();

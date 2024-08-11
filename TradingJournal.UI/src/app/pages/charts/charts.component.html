@@ -1,0 +1,13 @@
+<app-page-header>
+    <div class="header-content">
+        <app-search-bar [autoCompleteData]="autoCompleteData()"
+                        (searchInputEvent)="getAutoCompleteData($event)"
+                        (searchStockEvent)="getStockData($event)"
+        ></app-search-bar>
+    </div>
+</app-page-header>
+<div class="content">
+
+    <app-stock-card [data]="activeStockData()"></app-stock-card>
+    <app-point-styling [chartDataSignal]="chartDataSignal()"></app-point-styling>
+</div>

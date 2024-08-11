@@ -5,8 +5,10 @@ import { AssetType } from "../types/asset.type";
 export interface Position {
     positionId?: number;
     assetType?: AssetType;
-    label?: string;
+    assetName?: string;
     positionState?: PositionState;
     roi?: number;
+    total?: number;
+    aggregate?: number;
     transactions?: Transaction[];
 }
