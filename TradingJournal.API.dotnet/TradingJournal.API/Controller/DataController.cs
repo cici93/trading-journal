@@ -34,5 +34,4 @@ public class DataController(IDataService dataService) : ControllerBase
         return result.IsSuccess ? Ok(result.Value) : NotFound(result.Errors.First().Message);
     }
     
-    
 }

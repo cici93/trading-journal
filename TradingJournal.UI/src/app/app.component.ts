@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.themeService.loadTheme();
     this.loading$ = this.loadingService.loading$;
+
   }
 
 }

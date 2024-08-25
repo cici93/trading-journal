@@ -37,7 +37,7 @@ builder.Services.AddSwaggerGen();
 // builder.Services.AddScoped<ITransactionService, TransactionService>();
 // builder.Services.AddScoped<IPositionService, PositionService>();
 builder.Services.AddScoped<IDataService, DataService>();
-
+builder.Services.AddHttpClient();
 
 //Lazy services
 // builder.Services.AddScoped(provider => new Lazy<ITransactionService>(

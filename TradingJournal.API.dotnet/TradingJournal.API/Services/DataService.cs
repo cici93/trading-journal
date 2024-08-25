@@ -1,16 +1,16 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using Alpaca.Markets;
 using FluentResults;
 using TradingJournal.Dtos;
 using TradingJournal.Interfaces;
+using TradingJournal.Models.Api_Ninja;
 using TradingJournal.Services.Helpers;
 
 namespace TradingJournal.Services;
 
-public class DataService : IDataService
+public class DataService(IHttpClientFactory clientFactory) : IDataService
 {
-    
-    
     private const String KEY_ID = "PKF5OOQIW9RB94Y7FY9N";
     private const String SECRET_KEY = "wmMm1mlV1lxhXG46cGWk1khIURBUSFXSOOFvQZk7";
     
@@ -112,13 +112,20 @@ public class DataService : IDataService
             {
                 Ticker = symbolDto.Value.Ticker,
                 CompanyName = symbolDto.Value.CompanyName,
-                Price = lastClosing,
+                Price = new Price
+                {
+                    Value = lastClosing,
+                    Currency = "$",
+                    LastUpdated = data.Value.Last().TimeStamp
+                },
                 Week52Low = totalLow,
                 Week52High = totalHigh,
                 Change = CalculatorService.CalculateChange(previousLastClosing, lastClosing),
                 ChangePercent = CalculatorService.CalculateChangePercent(previousLastClosing, lastClosing),
                 HistoricalBars = data.Value.ToArray()
             };
+
+            stockData.StockLogo = await GetStockLogoAsync(stockData);
             
             return Result.Ok(stockData);
         }
@@ -127,9 +134,33 @@ public class DataService : IDataService
             return Result.Fail(e.Message);
         }
     }
-    
-    
-    
+
+
+    private async Task<Logo> GetStockLogoAsync(StockDataDto stockData)
+    {
+        var companyName = stockData.CompanyName.Split(" ")[0].Split(",")[0];
+        var client = clientFactory.CreateClient();
+        client.DefaultRequestHeaders.Add("X-Api-Key", "QCWidRN5xTmPdBEmQYg47Q==rhyEQytFirjSTFQ1");
+        
+        try
+        {
+            var response = await client.GetFromJsonAsync<List<Logo>>(
+                $"https://api.api-ninjas.com/v1/logo?name={companyName}",
+                new JsonSerializerOptions(JsonSerializerDefaults.Web));
+            
+            var matchingCompany = response.FirstOrDefault(x => x.Ticker == stockData.Ticker);
+
+            if (matchingCompany is null)
+            {
+                throw new Exception($"No logo found for company {stockData.Ticker}.");
+            }
+            return matchingCompany;
+        }
+        catch (Exception e)
+        {
+            throw new Exception($"An error occurred while getting the stock logo {stockData.Ticker}: {e.Message}", e);
+        }
+    }
     
     private class CompanyData
     {
